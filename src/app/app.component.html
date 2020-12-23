@@ -1,4 +1,104 @@
-<hello name="{{ name }}"></hello>
-<p>
-  Start editing to see some magic happen :)
-</p>
+<!-- 
+  <mat-table [dataSource]="dataSource" class="mat-elevation-z8" cdkDropListGroup matSort>
+    <ng-container *ngFor="let column of columns; let i = index" [matColumnDef]="column.field">
+      <mat-header-cell *matHeaderCellDef
+        cdkDropList
+        cdkDropListLockAxis="x"
+        cdkDropListOrientation="horizontal"
+        (cdkDropListDropped)="dropListDropped($event, i)"
+        cdkDrag
+        (cdkDragStarted)="dragStarted($event, i)"
+        [cdkDragData]="{name: column.field, columIndex: i}" mat-sort-header>
+        {{ column.field }}
+      </mat-header-cell>
+      <mat-cell *matCellDef="let row" > {{ row[column.field] }}  </mat-cell>
+    </ng-container>
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+  </mat-table> -->
+
+<table
+  mat-table
+  [dataSource]="dataSource"
+  cdkDropListGroup
+  matSort
+  class="mat-elevation-z8"
+>
+  <!-- Position Column -->
+  <ng-container matColumnDef="position">
+    <th
+      cdkDropList
+      cdkDropListLockAxis="x"
+      cdkDropListOrientation="horizontal"
+      (cdkDropListDropped)="dropListDropped($event, 0)"
+      cdkDrag
+      (cdkDragStarted)="dragStarted($event, 0)"
+      [cdkDragData]="{name: 'position', columIndex: 0}"
+      mat-header-cell
+      *matHeaderCellDef
+      mat-sort-header
+    >
+      No.
+    </th>
+    <td mat-cell *matCellDef="let element">{{element.position}}</td>
+  </ng-container>
+
+  <!-- Name Column -->
+  <ng-container matColumnDef="name">
+    <th
+      cdkDropList
+      cdkDropListLockAxis="x"
+      cdkDropListOrientation="horizontal"
+      (cdkDropListDropped)="dropListDropped($event, 1)"
+      cdkDrag
+      (cdkDragStarted)="dragStarted($event, 1)"
+      [cdkDragData]="{name: 'name', columIndex: 1}"
+      mat-header-cell
+      *matHeaderCellDef
+      mat-sort-header
+    >
+      Name
+    </th>
+    <td mat-cell *matCellDef="let element">{{element.name}}</td>
+  </ng-container>
+
+  <!-- Weight Column -->
+  <ng-container matColumnDef="weight">
+    <th
+      cdkDropList
+      cdkDropListLockAxis="x"
+      cdkDropListOrientation="horizontal"
+      (cdkDropListDropped)="dropListDropped($event, 2)"
+      cdkDrag
+      (cdkDragStarted)="dragStarted($event, 2)"
+      [cdkDragData]="{name: 'weight', columIndex: 2}"
+      mat-header-cell
+      *matHeaderCellDef
+      mat-sort-header
+    >
+      Weight
+    </th>
+    <td mat-cell *matCellDef="let element">{{element.weight}}</td>
+  </ng-container>
+
+  <!-- Symbol Column -->
+  <ng-container matColumnDef="symbol">
+    <th
+      cdkDropList
+      cdkDropListLockAxis="x"
+      cdkDropListOrientation="horizontal"
+      (cdkDropListDropped)="dropListDropped($event, 3)"
+      cdkDrag
+      (cdkDragStarted)="dragStarted($event, 3)"
+      [cdkDragData]="{name: 'symbol', columIndex: 3}"
+      mat-header-cell
+      *matHeaderCellDef
+      mat-sort-header
+    >
+      Symbol
+    </th>
+    <td mat-cell *matCellDef="let element">{{element.symbol}}</td>
+  </ng-container>
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>
