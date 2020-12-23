@@ -1,3 +1,3 @@
-# angular-ivy-bfbibe
+# angular-mat-table-sort-reorder drag & drop
 
-[Edit on StackBlitz ⚡️](https://stackblitz.com/edit/angular-ivy-bfbibe)
+[Edit on StackBlitz ⚡️](https://angular-mat-table-reorder-sort.stackblitz.io)
